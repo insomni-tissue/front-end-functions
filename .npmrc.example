@@ -1,0 +1,7 @@
+init.author.name = 账号
+init.author.email = 邮箱
+init.author.url = npmUrl
+# an email is required to publish npm packages
+email=npm_deploy@xxx.com.cn
+always-auth=true
+_auth=Base64秘钥

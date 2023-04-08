@@ -1,0 +1,62 @@
+{
+  "name": "front-end-functions",
+  "version": "1.0.0",
+  "description": "frontend utils",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "demo git url"
+  },
+  "publishConfig": {
+    "registry": "https://www.npmjs.com"
+  },
+  "keywords": [
+    "frontend",
+    "javascript",
+    "js",
+    "front-end-functions",
+    "Front end library",
+    "utils"
+  ],
+  "files": [
+    "dist",
+    "types"
+  ],
+  "author": "Weicong",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "image-conversion": "^2.1.1",
+    "lodash-es": "^4.17.21",
+    "sa-sdk-javascript": "^1.21.12",
+    "sha1": "^1.1.1",
+    "tiny-pinyin": "^1.3.0",
+    "vconsole": "^3.14.6",
+    "vue": "^3.2.25",
+    "weixin-js-sdk": "^1.6.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.0.0",
+    "@types/sha1": "^1.1.3",
+    "@vitejs/plugin-legacy": "^2.2.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "fs": "0.0.1-security",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-visualizer": "^5.8.3",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.9",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-dts": "^1.2.0",
+    "vue-tsc": "^0.38.1"
+  }
+}
