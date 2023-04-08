@@ -40,6 +40,8 @@ _auth=上一步的Base64编码输出
 修改package.json中的version
 **每次发布需修改版本号， 否则无法发布**
 
+<!-- npm config set registry https://registry.npmjs.org/ -->
+
 ## 打包
 ```
 npm run build
@@ -48,4 +50,6 @@ npm run build
 ## 发布
 ```
 npm publish
+npm publish --access publish
+
 ```

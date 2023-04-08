@@ -15,7 +15,7 @@
     "url": "demo git url"
   },
   "publishConfig": {
-    "registry": "https://www.npmjs.com"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "frontend",
