@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "demo git url"
+    "url": "https://github.com/insomni-tissue/front-end-functions.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
