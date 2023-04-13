@@ -1,6 +1,6 @@
 {
   "name": "front-end-functions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "frontend utils",
   "main": "dist/index.js",
   "module": "dist/index.js",
