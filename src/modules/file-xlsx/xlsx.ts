@@ -64,7 +64,7 @@ export const getXlsxFileData = (file: File, options?: any): Promise<KeyMapAny<un
   checkFileType(file)
     .then(() => {
       readFile(file, options).then((fileData: any[]) => {
-        resolve(fileData);
+        resolve(fileData); // TODO 导出后乱码待处理
       });
     }).catch((err) => reject(err));
 });

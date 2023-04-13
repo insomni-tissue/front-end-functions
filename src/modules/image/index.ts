@@ -156,7 +156,7 @@ export const getOrientation = (file: File): Promise<number | undefined> => {
             });
           });
         });
-      } catch(err) {
+      } catch (err) {
         resolve(undefined);
       }
     } else {
@@ -186,8 +186,7 @@ export const compressFileToDataURL = (
       if (compressFile) {
         const dataURL: string = await imageConversion.filetoDataURL(compressFile).catch(reject) ?? '';
         console.log(
-          `%c压缩文件为base64 %c${file.size / 1024}KB >>> ${
-            compressFile.size / 1024
+          `%c压缩文件为base64 %c${file.size / 1024}KB >>> ${compressFile.size / 1024
           }KB`,
           'color:blue',
           'color:green',
@@ -220,7 +219,7 @@ export const compressFile = (file: File, size = 500): Promise<File> => {
           'color:blue',
           'color:green',
         );
-  
+
         resolve(new File([imageFile], file.name));
       }
     });
@@ -250,7 +249,7 @@ export const compressCanvesToFile = (
                 'color:green',
               );
               console.timeEnd('compressFileToDataURL');
-        
+
               resolve(new File([imageFile], filename));
             }).catch(reject)
         }).catch(reject)
@@ -329,3 +328,57 @@ export const getImageData = (
       });
   });
 };
+/**
+ * 根据图片路径下载
+ * @param imgsrc 图片路径
+ * @param name 下载图片名称
+ * @param type 格式图片，可选，默认png
+ */
+export const downloadImage = (imgsrc: string, name: string, type: string = 'png') => {
+  let image = new Image();
+  // 解决跨域 Canvas 污染问题
+  image.setAttribute("crossOrigin", "anonymous");
+  image.onload = function () {
+    let canvas = document.createElement("canvas");
+    canvas.width = image.width;
+    canvas.height = image.height;
+    let context = canvas.getContext("2d");
+    context?.drawImage(image, 0, 0, image.width, image.height);
+    let url = canvas.toDataURL(`image/${type}`); //得到图片的base64编码数据
+    let a = document.createElement("a"); // 生成一个a元素
+    let event = new MouseEvent("click"); // 创建一个单击事件
+    a.download = name || "pic"; // 设置图片名称
+    a.href = url; // 将生成的URL设置为a.href属性
+    a.dispatchEvent(event); // 触发a的单击事件
+  }
+  //将资源链接赋值过去，才能触发image.onload 事件
+  image.src = imgsrc
+}
+/**
+ * 根据图片路径下载
+ * @param src 图片路径
+ * @param name 下载图片名称
+ * @param type 格式图片，可选，默认png
+ */
+export const downloadImageTwo = (src: string, name: string, type: string = 'png') => {
+  let img = document.createElement('img');
+  // 解决跨域 Canvas 污染问题
+  img.setAttribute("crossOrigin", 'Anonymous');
+  img.onload = function (e) {
+    let canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    let context = canvas.getContext('2d');
+    //绘制图片
+    context?.drawImage(img, 0, 0, img.width, img.height);
+    //将canvas转base64码，然后创建一个a连接自动下载图片
+    canvas.toBlob((blob) => {
+      let link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob as Blob);
+      link.download = name;
+      link.click();
+    }, `image/${type}`);
+  }
+  //将资源链接赋值过去，才能触发img.onload事件
+  img.src = src
+}
