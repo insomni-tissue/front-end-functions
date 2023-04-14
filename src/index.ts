@@ -1,4 +1,6 @@
+export * from './modules/utils/index';
 export * from './modules/async-script';
+export * from './modules/down';
 export * from './modules/aMap';
 export * from './modules/file-xlsx';
 export * from './modules/image';
