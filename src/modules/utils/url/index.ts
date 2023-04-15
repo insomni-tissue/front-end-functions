@@ -1,4 +1,4 @@
-import { KeyMapAny } from "../../interface";
+import { KeyMapAny } from "../../../interface";
 
 /**
  * 获取Url参数

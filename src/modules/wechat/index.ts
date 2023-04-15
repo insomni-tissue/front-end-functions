@@ -1,6 +1,6 @@
-import EnvUtils from '../env/browser';
+import EnvUtils from '../utils/env/browser';
 import { WechatSdk } from './sdk';
-import { enCodeUrlParams } from '../url';
+import { enCodeUrlParams } from '../utils/url';
 // const EnvUtils = new _EnvUtils()
 /*
 * 微信签约类型枚举 */
