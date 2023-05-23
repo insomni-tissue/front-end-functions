@@ -1,4 +1,5 @@
 const path = require('path')
+import { fileURLToPath } from 'node:url'
 const { defineConfig } = require('vite')
 const fs = require('fs')
 import dts from 'vite-plugin-dts'

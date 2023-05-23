@@ -13,3 +13,5 @@ export * from './modules/utils/index';
 export * from './modules/utils/number';
 export * from './modules/utils/storage';
 export * from './modules/utils/string';
+export * from  './modules/utils/down-file/excel'
+export * from  './modules/utils/down-file/img'
