@@ -1,25 +1,21 @@
 
-import { RandomNumber, removeNode } from ".."
+import { removeNode } from ".."
 /**
- * 根据接口获取文件并下载
- * @param action 接口路径
- * @param method 接口请求方式
- * @param parent 生成form父级元素
+ * 文件流下载文件
+ * @param blob 
+ * @param fileName 
  */
-export const formDataDownFile = (action: string, method: string = 'post', parent: string = 'app') => {
-    const App = document.getElementById(parent)
-    const form = document.createElement("form")
-    form.name = "download_form" + RandomNumber()
-    form.id = "download_form" + RandomNumber()
-    form.method = `${method}`
-    form.target = "downloadBox"
-    form.action = action
-    App?.appendChild(form)
-    form.submit()
-    // App?.removeChild(form)
-    removeNode(form)
-}
-
+export const blobFileDown = (blob: Blob, fileName: string) => {
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement("a")
+    downloadLink.href = url
+    downloadLink.download = fileName
+    downloadLink.hidden = true
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
+    document.body.removeChild(downloadLink)
+  }
+  
 /**
  * 根据图片路径下载
  * @param imgsrc 图片路径
@@ -75,4 +71,36 @@ export const downloadImageTwo = (src: string, name: string, type: string = 'png'
     }
     //将资源链接赋值过去，才能触发img.onload事件
     img.src = src
+}
+
+/**
+ * 创建 <a> 标签下载文件流格式图片
+ * @param file 
+ * @param fileName 
+ */
+export const downloadFile = (file: string, fileName?: string) => {
+    const blob = new Blob([file]);
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(blob);
+    fileReader.onload = (e) => {
+        const a = document.createElement("a");
+        a.download = fileName || '0123456.PNG';
+        a.href = e.target?.result as string;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+}
+/**
+ * 文件流格式转为Base64格式下载
+ * @param file 文件流数据
+ */
+export const downloadFileUrl = (file: Blob) => {
+    const blob = new Blob([file]);
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(blob);
+    fileReader.onload = (e) => {
+        const url = e.target?.result as string;
+        downloadImage(`data:image/png;Base64,${url}`, 'testefd')
+    };
 }

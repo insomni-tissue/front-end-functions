@@ -1,6 +1,6 @@
 {
   "name": "front-end-functions",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "frontend utils",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,8 +11,7 @@
     "preview": "vite preview"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/insomni-tissue/front-end-functions.git"
+    "type": "git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

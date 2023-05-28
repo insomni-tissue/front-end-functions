@@ -15,3 +15,4 @@
 | 12 |  [pinYin](./src/modules/pin-yin/README.md)  |  链接url相关解析 | 是 |
 | 13 |  [validators](./src/modules/validators/README.md)  |  链接url相关解析 | 否 |
 | 14 |  [docs](./src/modules/docs/README.md)  |  导出docs文档 | 是 |
+| 15 |  [utils](./src/modules/utils/README.md)  |  常用方法 | 是 |
